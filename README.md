@@ -1,8 +1,35 @@
-# Motion Director
+<h1 align="center">Motion Director</h1>
 
-**claude-motion-director** · a Claude Code skill that directs and renders motion design videos from code: launch films,
-product reels, showreels and animated explainers, in vertical, square and wide from one
-timeline. Built on [HyperFrames](https://github.com/heygen-com/hyperframes).
+<p align="center">
+  <b>claude-motion-director</b> · a Claude Code skill that directs and renders motion design videos from code
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f?style=flat-square" alt="License: MIT" /></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.1.0-FF5A1F?style=flat-square" alt="Version 0.1.0" /></a>
+  <a href="https://github.com/YOUR-USERNAME/claude-motion-director/stargazers"><img src="https://img.shields.io/github/stars/YOUR-USERNAME/claude-motion-director?style=flat-square&logo=github&color=FF5A1F" alt="GitHub stars" /></a>
+  <a href="https://github.com/YOUR-USERNAME/claude-motion-director/commits/main"><img src="https://img.shields.io/github/last-commit/YOUR-USERNAME/claude-motion-director?style=flat-square" alt="Last commit" /></a>
+  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-welcome-2ea44f?style=flat-square" alt="PRs welcome" /></a>
+</p>
+
+<p align="center">
+  <a href="https://claude.com/claude-code"><img src="https://img.shields.io/badge/Claude%20Code-skill-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="Claude Code skill" /></a>
+  <a href="https://github.com/heygen-com/hyperframes"><img src="https://img.shields.io/badge/built%20on-HyperFrames-15171C?style=flat-square" alt="Built on HyperFrames" /></a>
+  <img src="https://img.shields.io/badge/Node.js-22%2B-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js 22+" />
+  <img src="https://img.shields.io/badge/Python-3-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3" />
+  <img src="https://img.shields.io/badge/FFmpeg-required-007808?style=flat-square&logo=ffmpeg&logoColor=white" alt="FFmpeg" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/sound%20sync-verified%20%E2%89%A410%20ms-1E8E5A?style=flat-square" alt="Sound sync verified within 10 ms" />
+  <img src="https://img.shields.io/badge/renders-deterministic-1E8E5A?style=flat-square" alt="Deterministic renders" />
+  <img src="https://img.shields.io/badge/formats-9%3A16%20%7C%201%3A1%20%7C%2016%3A9-1E8E5A?style=flat-square" alt="Formats 9:16, 1:1, 16:9" />
+</p>
+
+<p align="center">
+  Launch films, product reels, showreels and animated explainers, in vertical, square and wide
+  from one timeline. Built on <a href="https://github.com/heygen-com/hyperframes">HyperFrames</a>.
+</p>
 
 <p align="center">
   <img src="docs/actova-wide.gif" width="640" alt="Actova launch film, made with Motion Director" />
@@ -42,7 +69,7 @@ HyperFrames is an excellent engine for this. Motion Director is the **director l
 ## Install
 
 ```bash
-git clone https://github.com/<you>/claude-motion-director ~/.claude/skills/motion-director
+git clone https://github.com/YOUR-USERNAME/claude-motion-director ~/.claude/skills/motion-director
 pip install -r ~/.claude/skills/motion-director/scripts/requirements.txt
 ```
 
