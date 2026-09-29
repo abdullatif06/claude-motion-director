@@ -69,7 +69,7 @@ HyperFrames is an excellent engine for this. Motion Director is the **director l
 ## Install
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/claude-motion-director ~/.claude/skills/motion-director
+git clone https://github.com/abdullatif06/claude-motion-director ~/.claude/skills/motion-director
 pip install -r ~/.claude/skills/motion-director/scripts/requirements.txt
 ```
 
