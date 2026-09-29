@@ -1,5 +1,5 @@
 /*
- * Motion Studio motion library. Loaded before film.js and the scene files; exposes window.MS.
+ * Motion Director motion library. Loaded before film.js and the scene files; exposes window.MS.
  * Everything here is a pure function of time, so any frame can be rendered
  * directly (frame 812 without simulating frames 0-811).
  *

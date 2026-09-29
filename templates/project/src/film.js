@@ -1,5 +1,5 @@
 /*
- * Motion Studio film runner. Builds the film from the scenes listed in project.json.
+ * Motion Director film runner. Builds the film from the scenes listed in project.json.
  *
  * Each scene lives in its own file (src/scenes/NN-id.js) and registers itself:
  *

@@ -1,6 +1,6 @@
 # Example: Actova launch film
 
-A complete Motion Studio run on **Actova**, a fictional AI meeting assistant built for this
+A complete Motion Director run on **Actova**, a fictional AI meeting assistant built for this
 case study. Every person, meeting and number is example data.
 
 - 30 s, 120 BPM, 5 scenes (hook, listen, tasks, recap, week), vertical + wide, seamless loop

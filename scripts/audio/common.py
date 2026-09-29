@@ -1,4 +1,4 @@
-"""Shared audio helpers for Motion Studio. Needs numpy, scipy and ffmpeg."""
+"""Shared audio helpers for Motion Director. Needs numpy, scipy and ffmpeg."""
 import json
 import subprocess
 from pathlib import Path

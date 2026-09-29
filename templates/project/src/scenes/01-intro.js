@@ -6,7 +6,7 @@ MS.scene("intro", (s) => {
   const h = L.u * 1.2;          // line thickness = handoff dot size
   const full = L.u * 40;        // full line width
 
-  s.el.innerHTML = `<h1 class="title intro-title">Motion Studio</h1><div class="line"></div>`;
+  s.el.innerHTML = `<h1 class="title intro-title">Motion Director</h1><div class="line"></div>`;
   const title = s.$(".intro-title");
   const line = s.$(".line");
 

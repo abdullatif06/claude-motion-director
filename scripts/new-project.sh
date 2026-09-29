@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Create a new Motion Studio project on top of HyperFrames.
+# Create a new Motion Director project on top of HyperFrames.
 # Usage: bash <skill>/scripts/new-project.sh <project-name>
 set -euo pipefail
 
@@ -21,7 +21,7 @@ npm i --silent "gsap@${GSAP_VERSION}"
 mkdir -p assets/vendor
 cp node_modules/gsap/dist/gsap.min.js assets/vendor/gsap.min.js
 
-# 4. Motion Studio template
+# 4. Motion Director template
 cp -R "$SKILL_DIR/templates/project/src" ./src
 cp "$SKILL_DIR/templates/project/project.json" ./project.json
 mkdir -p docs out assets/refs assets/audio/sfx assets/fonts
@@ -39,11 +39,11 @@ cp "$SKILL_DIR/templates/LOOK.md" docs/LOOK.md
 cp "$SKILL_DIR/templates/shotlist.md" docs/shotlist.md
 node "$SKILL_DIR/scripts/shells.mjs"
 
-# 5. Point the project's CLAUDE.md at Motion Studio
+# 5. Point the project's CLAUDE.md at Motion Director
 cat >> CLAUDE.md <<EOF
 
-## Motion Studio
-This project is directed with the motion-studio skill ($SKILL_DIR).
+## Motion Director
+This project is directed with the motion-director skill ($SKILL_DIR).
 - One file per scene in src/scenes/ (API at the top of src/film.js); order and beats in project.json. Styles in src/style.css.
 - Render one scene alone: bash $SKILL_DIR/scripts/clip.sh <scene-id>
 - Never edit index.html by hand: change project.json, then run node $SKILL_DIR/scripts/shells.mjs [format]
@@ -52,5 +52,5 @@ This project is directed with the motion-studio skill ($SKILL_DIR).
 EOF
 
 echo
-echo "Motion Studio project ready: $(pwd)"
+echo "Motion Director project ready: $(pwd)"
 echo "Next: bash $SKILL_DIR/scripts/doctor.sh"

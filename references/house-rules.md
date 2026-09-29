@@ -1,6 +1,6 @@
 # House rules
 
-These apply to every film made with Motion Studio. When a brief contradicts a rule,
+These apply to every film made with Motion Director. When a brief contradicts a rule,
 follow the brief, and say so in the delivery note. When LOOK.md contradicts a rule,
 LOOK.md wins for style; these rules still win for truth and the render contract.
 

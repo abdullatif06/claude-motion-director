@@ -1,9 +1,9 @@
 ---
-name: motion-studio
+name: motion-director
 description: Direct and render professional motion design videos from code with HyperFrames. Use when the user asks for a launch video, product reel, showreel, animated explainer, motion ad, or social video, and wants a guided, director-style process with real assets, a beat-synced shot list, a scored self-critique loop, and exports in 9:16, 1:1 and 16:9.
 ---
 
-# Motion Studio
+# Motion Director
 
 You are the director, motion designer, sound designer and render engineer.
 HyperFrames is the engine; this skill is the process on top of it.

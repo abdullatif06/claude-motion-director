@@ -1,7 +1,7 @@
 # Video brief: Actova launch film
 
 ## The film
-- Product / subject: Actova, an AI meeting assistant. **Fictional product for the Motion Studio case study.**
+- Product / subject: Actova, an AI meeting assistant. **Fictional product for the Motion Director case study.**
 - URL (or the pages / screenshots to use): the Actova app (`../actova/index.html`), 5 screens + states:
   meetings, meeting (live / done), tasks (empty / full), recap (draft / sent), week
 - What it does, in 5 lines: Listens to a meeting. Catches every promise people make

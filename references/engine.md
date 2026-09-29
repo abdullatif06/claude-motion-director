@@ -1,6 +1,6 @@
 # Engine: HyperFrames conventions
 
-How Motion Studio projects are wired on top of HyperFrames. Tested with HyperFrames 0.8.86.
+How Motion Director projects are wired on top of HyperFrames. Tested with HyperFrames 0.8.86.
 For anything not covered here, use the HyperFrames skills (`/hyperframes`) or `npx hyperframes docs <topic>`.
 
 ## Project layout
@@ -28,7 +28,7 @@ my-film/
 
 | Script | Run from | Does |
 |---|---|---|
-| `scripts/new-project.sh <name>` | anywhere | HyperFrames init + local GSAP + Motion Studio template |
+| `scripts/new-project.sh <name>` | anywhere | HyperFrames init + local GSAP + Motion Director template |
 | `scripts/doctor.sh` | project root | environment and project checks |
 | `scripts/smoke-test.sh` | project root | proves check + determinism before real work; writes `out/smoke.png` |
 | `scripts/shells.mjs [format] [--solo id]` | project root | writes index.html for a format (default: primary), optionally one scene alone |

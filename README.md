@@ -1,13 +1,13 @@
-# Motion Studio
+# Motion Director
 
-A Claude skill that directs and renders motion design videos from code: launch films,
+**claude-motion-director** · a Claude Code skill that directs and renders motion design videos from code: launch films,
 product reels, showreels and animated explainers, in vertical, square and wide from one
 timeline. Built on [HyperFrames](https://github.com/heygen-com/hyperframes).
 
 <p align="center">
-  <img src="docs/actova-wide.gif" width="640" alt="Actova launch film, made with Motion Studio" />
+  <img src="docs/actova-wide.gif" width="640" alt="Actova launch film, made with Motion Director" />
 </p>
-<p align="center"><sub>Actova: a 30-second launch film made end to end with Motion Studio.
+<p align="center"><sub>Actova: a 30-second launch film made end to end with Motion Director.
 Fictional product, example data. <a href="examples/actova">See the full run</a>.</sub></p>
 
 ## Why it exists
@@ -18,7 +18,7 @@ gradient, everything fading in. The videos that look expensive come from the pro
 the prompt: real product screens, a reference, a beat grid, springs instead of curves, sound
 on measured peaks, and a model that looks at its own frames until they're good.
 
-HyperFrames is an excellent engine for this. Motion Studio is the **director layer** on top:
+HyperFrames is an excellent engine for this. Motion Director is the **director layer** on top:
 
 - **A guided process with gates:** brief → real assets → LOOK card → sound → shot list (you
   approve it) → scenes → critique loop → delivery
@@ -42,15 +42,15 @@ HyperFrames is an excellent engine for this. Motion Studio is the **director lay
 ## Install
 
 ```bash
-git clone https://github.com/<you>/motion-studio ~/.claude/skills/motion-studio
-pip install -r ~/.claude/skills/motion-studio/scripts/requirements.txt
+git clone https://github.com/<you>/claude-motion-director ~/.claude/skills/motion-director
+pip install -r ~/.claude/skills/motion-director/scripts/requirements.txt
 ```
 
 Then, once per machine, prove the pipeline:
 
 ```bash
-bash ~/.claude/skills/motion-studio/scripts/new-project.sh test-film
-cd test-film && bash ~/.claude/skills/motion-studio/scripts/smoke-test.sh
+bash ~/.claude/skills/motion-director/scripts/new-project.sh test-film
+cd test-film && bash ~/.claude/skills/motion-director/scripts/smoke-test.sh
 ```
 
 The smoke test checks the composition, renders the same frame twice to prove determinism,
@@ -114,7 +114,7 @@ version new projects get, set `HF_VERSION` when running the scripts.
 ## Credits
 
 - Engine: [HyperFrames](https://github.com/heygen-com/hyperframes) by HeyGen (Apache 2.0).
-  Motion Studio depends on it and does not include its code.
+  Motion Director depends on it and does not include its code.
 - Animation: [GSAP](https://gsap.com), installed from npm into each project under its own license
   (not included in this repo).
 - Fonts in the example: Inter and Instrument Serif (SIL Open Font License), fetched from npm.
