@@ -1,0 +1,159 @@
+[
+ {
+  "scene": "hook",
+  "beat": 0.5,
+  "sound": "pop"
+ },
+ {
+  "scene": "hook",
+  "beat": 4,
+  "sound": "pop"
+ },
+ {
+  "scene": "listen",
+  "beat": 4,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 5,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 6,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 7,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 8,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 9,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 10,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 11,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 12,
+  "sound": "pop",
+  "gain": -7
+ },
+ {
+  "scene": "listen",
+  "beat": 14,
+  "sound": "whoosh",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 4.0,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 4.5,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 5.0,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 5.5,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 6.0,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 6.5,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 7.0,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 7.5,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 8.0,
+  "sound": "pop",
+  "gain": -6
+ },
+ {
+  "scene": "tasks",
+  "beat": 9,
+  "sound": "ding",
+  "gain": -5
+ },
+ {
+  "scene": "recap",
+  "beat": 5,
+  "sound": "click"
+ },
+ {
+  "scene": "recap",
+  "beat": 6,
+  "sound": "ding",
+  "gain": -4
+ },
+ {
+  "scene": "week",
+  "beat": 0,
+  "sound": "whoosh",
+  "gain": -6
+ },
+ {
+  "scene": "week",
+  "beat": 4,
+  "sound": "pop"
+ },
+ {
+  "scene": "week",
+  "beat": 5,
+  "sound": "pop"
+ }
+]

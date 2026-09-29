@@ -1,0 +1,229 @@
+<!doctype html>
+<!--
+  Actova — a FICTIONAL product built as the Motion Studio case study.
+  Every person, meeting and number here is example data.
+  Views: ?view=meetings | meeting | tasks | recap | week
+  States: meeting&state=live|done · tasks&state=empty|full · recap&state=draft|sent
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Actova</title>
+<style>
+@font-face { font-family: Inter; font-weight: 400; src: url(fonts/inter-latin-400-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 500; src: url(fonts/inter-latin-500-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 600; src: url(fonts/inter-latin-600-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 700; src: url(fonts/inter-latin-700-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 800; src: url(fonts/inter-latin-800-normal.woff2); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url(fonts/instrument-serif-latin-400-italic.woff2); }
+
+:root {
+  --canvas: #F6F5F1; --card: #FFFFFF; --ink: #15171C; --muted: #6B6F76; --line: #E7E5DF;
+  --accent: #FF5A1F; --accent-soft: #FFEDE5; --good: #1E8E5A; --good-soft: #E4F4EB;
+  --maya: #6C5CE7; --omar: #0A7D70; --lena: #C93A6E; --sam: #9E6200;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1440px; height: 900px; overflow: hidden; background: var(--canvas); color: var(--ink);
+  font-family: Inter, system-ui, sans-serif; font-size: 15px; -webkit-font-smoothing: antialiased; }
+.app { display: grid; grid-template-columns: 232px 1fr; height: 100%; }
+
+/* Sidebar */
+.side { padding: 24px 16px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; letter-spacing: -0.03em; padding: 0 8px 22px; }
+.mark { width: 28px; height: 28px; border-radius: 9px; background: var(--accent); display: grid; place-items: center; }
+.mark svg { width: 16px; height: 16px; }
+.nav { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 10px; color: var(--muted); font-weight: 500; }
+.nav.on { background: var(--card); color: var(--ink); box-shadow: 0 1px 0 var(--line), 0 0 0 1px var(--line); }
+.nav i { width: 8px; height: 8px; border-radius: 3px; background: currentColor; opacity: .5; }
+.nav .count { margin-left: auto; font-size: 12px; background: var(--accent-soft); color: var(--accent); padding: 2px 7px; border-radius: 99px; font-weight: 600; }
+.side .foot { margin-top: auto; font-size: 12px; color: var(--muted); padding: 8px; }
+
+/* Main */
+.main { padding: 28px 36px; overflow: hidden; }
+.top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
+h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.03em; }
+h1 em { font-family: "Instrument Serif", serif; font-weight: 400; font-style: italic; color: var(--accent); font-size: 1.12em; }
+.sub { color: var(--muted); margin-top: 4px; }
+.btn { background: var(--ink); color: #fff; border-radius: 10px; padding: 10px 16px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+.btn.accent { background: var(--accent); }
+.btn.ghost { background: var(--card); color: var(--ink); box-shadow: 0 0 0 1px var(--line); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 12px 32px rgba(21,23,28,.05); }
+.av { width: 26px; height: 26px; border-radius: 50%; color: #fff; font-size: 11px; font-weight: 700; display: inline-grid; place-items: center; flex: none; }
+.av.maya { background: var(--maya); } .av.omar { background: var(--omar); } .av.lena { background: var(--lena); } .av.sam { background: var(--sam); }
+.pill { font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 99px; }
+.pill.good { background: var(--good-soft); color: var(--good); }
+.pill.accent { background: var(--accent-soft); color: var(--accent); }
+.pill.gray { background: #F0EFEA; color: var(--muted); }
+.view { display: none; } .view.on { display: block; }
+
+/* Meetings list */
+.row { display: grid; grid-template-columns: 1fr 120px 150px 130px; align-items: center; padding: 16px 22px; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .t { font-weight: 600; } .row .m { color: var(--muted); font-size: 13px; margin-top: 3px; }
+.stack { display: flex; } .stack .av { margin-left: -6px; box-shadow: 0 0 0 2px #fff; } .stack .av:first-child { margin-left: 0; }
+
+/* Meeting detail */
+.split { display: grid; grid-template-columns: 1fr 380px; gap: 20px; height: 740px; }
+.transcript { padding: 22px 26px; overflow: hidden; }
+.line { display: grid; grid-template-columns: 26px 1fr; gap: 12px; padding: 11px 0; }
+.line .who { font-size: 12px; font-weight: 600; color: var(--muted); margin-bottom: 3px; }
+.line .who span { font-weight: 400; margin-left: 6px; }
+mark { background: var(--accent-soft); color: var(--ink); border-radius: 5px; padding: 1px 4px; box-shadow: inset 0 -2px 0 var(--accent); }
+.rec { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent); }
+.rec i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.panel { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.panel h3 { font-size: 13px; text-transform: none; color: var(--muted); font-weight: 600; margin-bottom: 4px; }
+.found { display: flex; gap: 10px; align-items: center; padding: 11px 12px; border: 1px solid var(--line); border-radius: 12px; }
+.found .txt { font-weight: 600; font-size: 14px; } .found .due { margin-left: auto; font-size: 12px; color: var(--muted); }
+
+/* Tasks board */
+.cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.col { padding: 16px; min-height: 560px; }
+.col .h { display: flex; align-items: center; gap: 9px; font-weight: 700; margin-bottom: 14px; }
+.col .h .n { margin-left: auto; color: var(--muted); font-weight: 500; font-size: 13px; }
+.task { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; background: #fff; }
+.task .tt { font-weight: 600; font-size: 14px; line-height: 1.3; }
+.task .meta { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 12px; color: var(--muted); }
+.check { width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid #CFCCC4; }
+.empty { display: grid; place-items: center; height: 560px; color: var(--muted); text-align: center; gap: 8px; }
+.banner { display: flex; align-items: center; gap: 12px; padding: 14px 18px; margin-bottom: 18px; background: var(--good-soft); border-radius: 14px; color: var(--good); font-weight: 600; }
+
+/* Recap */
+.mail { width: 760px; padding: 0; overflow: hidden; }
+.mail .hd { padding: 18px 24px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; font-size: 14px; }
+.mail .hd b { color: var(--muted); font-weight: 500; display: inline-block; width: 64px; }
+.mail .bd { padding: 22px 24px; line-height: 1.6; }
+.mail li { list-style: none; display: flex; gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--line); }
+.mail .ft { padding: 16px 24px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 10px; background: #FBFAF7; }
+.sent { display: none; } body.sent .sent { display: inline-flex; } body.sent .unsent { display: none; }
+
+/* Week */
+.stats { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 18px; }
+.big { padding: 30px; }
+.big .n { font-size: 96px; font-weight: 800; letter-spacing: -0.05em; line-height: 1; }
+.big .n em { font-family: "Instrument Serif", serif; font-weight: 400; color: var(--accent); }
+.small { padding: 24px; } .small .n { font-size: 44px; font-weight: 800; letter-spacing: -0.04em; }
+.lbl { color: var(--muted); font-weight: 500; margin-top: 8px; }
+.bars { display: flex; align-items: flex-end; gap: 14px; height: 180px; margin-top: 26px; }
+.bars div { flex: 1; background: var(--accent-soft); border-radius: 8px 8px 4px 4px; position: relative; }
+.bars div.on { background: var(--accent); }
+.bars span { position: absolute; bottom: -24px; left: 0; right: 0; text-align: center; font-size: 12px; color: var(--muted); }
+.example { position: fixed; right: 18px; bottom: 14px; font-size: 11px; color: var(--muted); letter-spacing: .02em; }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="logo"><div class="mark"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Actova</div>
+    <div class="nav" data-v="meetings"><i></i>Meetings</div>
+    <div class="nav" data-v="tasks"><i></i>Tasks <span class="count">9</span></div>
+    <div class="nav" data-v="recap"><i></i>Recaps</div>
+    <div class="nav" data-v="week"><i></i>This week</div>
+    <div class="foot">Northwind team · 4 members</div>
+  </aside>
+
+  <main class="main">
+    <!-- Meetings -->
+    <section class="view" id="meetings">
+      <div class="top"><div><h1>Meetings</h1><p class="sub">Actova listens, then does the follow-up.</p></div><div class="btn accent">+ Record meeting</div></div>
+      <div class="card">
+        <div class="row"><div><div class="t">Q4 launch sync</div><div class="m">Today · 45 min</div></div><div class="stack"><span class="av maya">MC</span><span class="av omar">OH</span><span class="av lena">LB</span><span class="av sam">SO</span></div><div><span class="pill accent">9 tasks created</span></div><div class="m">Recap sent</div></div>
+        <div class="row"><div><div class="t">Design review: onboarding</div><div class="m">Yesterday · 30 min</div></div><div class="stack"><span class="av lena">LB</span><span class="av maya">MC</span></div><div><span class="pill good">4 tasks · all done</span></div><div class="m">Recap sent</div></div>
+        <div class="row"><div><div class="t">Pricing workshop</div><div class="m">Mon · 60 min</div></div><div class="stack"><span class="av sam">SO</span><span class="av maya">MC</span><span class="av omar">OH</span></div><div><span class="pill accent">6 tasks created</span></div><div class="m">Recap sent</div></div>
+        <div class="row"><div><div class="t">Weekly engineering standup</div><div class="m">Mon · 15 min</div></div><div class="stack"><span class="av omar">OH</span></div><div><span class="pill good">2 tasks · all done</span></div><div class="m">Recap sent</div></div>
+      </div>
+    </section>
+
+    <!-- Meeting detail -->
+    <section class="view" id="meeting">
+      <div class="top"><div><h1>Q4 launch sync</h1><p class="sub">Today · 45 min · Maya, Omar, Lena, Sam</p></div><div class="rec live-only"><i></i>Listening</div><div class="btn done-only">Create 9 tasks</div></div>
+      <div class="split">
+        <div class="card transcript">
+          <div class="line"><span class="av maya">MC</span><div><div class="who">Maya Chen <span>12:04</span></div>Okay, launch is three weeks out. <mark>I'll send the updated pitch deck by Friday.</mark></div></div>
+          <div class="line"><span class="av omar">OH</span><div><div class="who">Omar Haddad <span>12:06</span></div>The checkout bug is still open. <mark>I'll fix it by Wednesday</mark>, and <mark>I'll run a full mobile QA pass Friday.</mark></div></div>
+          <div class="line"><span class="av lena">LB</span><div><div class="who">Lena Brooks <span>12:11</span></div><mark>Final homepage visuals will be ready Thursday.</mark> I can also <mark>do the onboarding icons by Friday.</mark></div></div>
+          <div class="line"><span class="av sam">SO</span><div><div class="who">Sam Ortiz <span>12:15</span></div><mark>I'll draft the launch email Thursday</mark> and <mark>rewrite the pricing page copy Wednesday.</mark></div></div>
+          <div class="line"><span class="av maya">MC</span><div><div class="who">Maya Chen <span>12:19</span></div>Good. <mark>I'll book the venue for launch day Monday</mark> and <mark>share the budget with finance Tuesday.</mark></div></div>
+          <div class="line"><span class="av omar">OH</span><div><div class="who">Omar Haddad <span>12:22</span></div>Sounds like a plan. Same time next week?</div></div>
+        </div>
+        <div class="card panel">
+          <h3>Promises found · 9</h3>
+          <div class="found"><span class="av maya">MC</span><span class="txt">Send updated pitch deck</span><span class="due">Fri</span></div>
+          <div class="found"><span class="av omar">OH</span><span class="txt">Fix checkout bug</span><span class="due">Wed</span></div>
+          <div class="found"><span class="av omar">OH</span><span class="txt">Mobile QA pass</span><span class="due">Fri</span></div>
+          <div class="found"><span class="av lena">LB</span><span class="txt">Final homepage visuals</span><span class="due">Thu</span></div>
+          <div class="found"><span class="av lena">LB</span><span class="txt">Onboarding icon set</span><span class="due">Fri</span></div>
+          <div class="found"><span class="av sam">SO</span><span class="txt">Draft launch email</span><span class="due">Thu</span></div>
+          <div class="found"><span class="av sam">SO</span><span class="txt">Pricing page copy</span><span class="due">Wed</span></div>
+          <div class="found"><span class="av maya">MC</span><span class="txt">Book launch-day venue</span><span class="due">Mon</span></div>
+          <div class="found"><span class="av maya">MC</span><span class="txt">Share budget with finance</span><span class="due">Tue</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tasks -->
+    <section class="view" id="tasks">
+      <div class="top"><div><h1>Tasks from <em>Q4 launch sync</em></h1><p class="sub">Created in 12 seconds · 9 tasks · 4 owners</p></div><div class="btn ghost">Open in your task tool</div></div>
+      <div class="banner full-only">✓ 9 tasks created · every promise has an owner and a date</div>
+      <div class="empty empty-only"><div style="font-weight:600;color:var(--ink)">No tasks yet</div><div>Tasks appear here when a meeting ends.</div></div>
+      <div class="cols full-only">
+        <div class="card col"><div class="h"><span class="av maya">MC</span>Maya<span class="n">3</span></div>
+          <div class="task"><div class="tt">Send updated pitch deck</div><div class="meta"><span class="check"></span>Fri</div></div>
+          <div class="task"><div class="tt">Book launch-day venue</div><div class="meta"><span class="check"></span>Mon</div></div>
+          <div class="task"><div class="tt">Share budget with finance</div><div class="meta"><span class="check"></span>Tue</div></div></div>
+        <div class="card col"><div class="h"><span class="av omar">OH</span>Omar<span class="n">2</span></div>
+          <div class="task"><div class="tt">Fix checkout bug</div><div class="meta"><span class="check"></span>Wed</div></div>
+          <div class="task"><div class="tt">Mobile QA pass</div><div class="meta"><span class="check"></span>Fri</div></div></div>
+        <div class="card col"><div class="h"><span class="av lena">LB</span>Lena<span class="n">2</span></div>
+          <div class="task"><div class="tt">Final homepage visuals</div><div class="meta"><span class="check"></span>Thu</div></div>
+          <div class="task"><div class="tt">Onboarding icon set</div><div class="meta"><span class="check"></span>Fri</div></div></div>
+        <div class="card col"><div class="h"><span class="av sam">SO</span>Sam<span class="n">2</span></div>
+          <div class="task"><div class="tt">Pricing page copy</div><div class="meta"><span class="check"></span>Wed</div></div>
+          <div class="task"><div class="tt">Draft launch email</div><div class="meta"><span class="check"></span>Thu</div></div></div>
+      </div>
+    </section>
+
+    <!-- Recap -->
+    <section class="view" id="recap">
+      <div class="top"><div><h1>Recap</h1><p class="sub">Written by Actova from the meeting. Edit anything before sending.</p></div></div>
+      <div class="card mail">
+        <div class="hd"><div><b>To</b>Maya, Omar, Lena, Sam</div><div><b>Subject</b>Q4 launch sync: 9 next steps</div></div>
+        <div class="bd">
+          <p style="margin-bottom:12px">Hi all, here's who's doing what before launch:</p>
+          <ul>
+            <li><span class="av maya">MC</span>Maya: pitch deck (Fri), venue (Mon), budget to finance (Tue)</li>
+            <li><span class="av omar">OH</span>Omar: checkout bug (Wed), mobile QA (Fri)</li>
+            <li><span class="av lena">LB</span>Lena: homepage visuals (Thu), onboarding icons (Fri)</li>
+            <li><span class="av sam">SO</span>Sam: pricing copy (Wed), launch email (Thu)</li>
+          </ul>
+          <p style="margin-top:12px;color:var(--muted)">Next sync: same time next week.</p>
+        </div>
+        <div class="ft"><span class="btn ghost unsent">Edit</span><span class="btn accent unsent">Send recap</span><span class="pill good sent" style="padding:10px 16px;font-size:14px">✓ Recap sent to 4 people</span></div>
+      </div>
+    </section>
+
+    <!-- Week -->
+    <section class="view" id="week">
+      <div class="top"><div><h1>This week</h1><p class="sub">Northwind team · Mon to Fri</p></div></div>
+      <div class="stats">
+        <div class="card big"><div class="n">5h <em>20m</em></div><div class="lbl">back this week, with no notes, no follow-up emails, no chasing</div>
+          <div class="bars"><div style="height:40%"><span>Mon</span></div><div style="height:55%"><span>Tue</span></div><div style="height:35%"><span>Wed</span></div><div class="on" style="height:100%"><span>Thu</span></div><div style="height:60%"><span>Fri</span></div></div></div>
+        <div class="card small"><div class="n">21</div><div class="lbl">promises caught</div></div>
+        <div class="card small"><div class="n">0</div><div class="lbl">forgotten</div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="example">Fictional product · Example data</div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const view = q.get("view") || "meetings", state = q.get("state") || "";
+  document.getElementById(view).classList.add("on");
+  document.querySelectorAll(".nav").forEach((n) => n.classList.toggle("on", n.dataset.v === (view === "meeting" ? "meetings" : view)));
+  const show = (cls, on) => document.querySelectorAll(cls).forEach((e) => (e.style.display = on ? "" : "none"));
+  show(".live-only", state === "live"); show(".done-only", state !== "live");
+  show(".empty-only", state === "empty"); show(".full-only", state !== "empty");
+  if (state === "sent") document.body.classList.add("sent");
+</script>
+</body>
+</html>

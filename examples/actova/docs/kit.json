@@ -1,0 +1,22 @@
+{
+ "click": {
+  "file": "assets/audio/sfx/click.wav",
+  "length": 0.08,
+  "hit": 0.0026
+ },
+ "ding": {
+  "file": "assets/audio/sfx/ding.wav",
+  "length": 0.9,
+  "hit": 0.0062
+ },
+ "pop": {
+  "file": "assets/audio/sfx/pop.wav",
+  "length": 0.12,
+  "hit": 0.0034
+ },
+ "whoosh": {
+  "file": "assets/audio/sfx/whoosh.wav",
+  "length": 0.6,
+  "hit": 0.3252
+ }
+}

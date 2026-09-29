@@ -1,0 +1,8 @@
+/* Fonts: declared at the project root so paths resolve from the root in both the
+   browser and HyperFrames' checks. */
+@font-face { font-family: Inter; font-weight: 400; src: url(assets/fonts/inter-latin-400-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 500; src: url(assets/fonts/inter-latin-500-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 600; src: url(assets/fonts/inter-latin-600-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 700; src: url(assets/fonts/inter-latin-700-normal.woff2); }
+@font-face { font-family: Inter; font-weight: 800; src: url(assets/fonts/inter-latin-800-normal.woff2); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url(assets/fonts/instrument-serif-latin-400-italic.woff2); }

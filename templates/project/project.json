@@ -1,0 +1,10 @@
+{
+  "fps": 30,
+  "bpm": 120,
+  "beatOffset": 0,
+  "formats": ["vertical", "square", "wide"],
+  "scenes": [
+    { "id": "intro", "beats": 6 },
+    { "id": "tabs", "beats": 6 }
+  ]
+}
